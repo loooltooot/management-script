@@ -23,7 +23,8 @@ def chain_method(plan, fact):
         delta = round((multiply - previous_multiplay), 2)
         deltas.append(delta)
 
-        print(f'XYZ{i} = {multiply} - {previous_multiplay} = {delta}')
+        print(f'X{i} = {plan[0]} * {plan[1]} * {plan[2]} = {multiply}')
+        print(f'∆{i} = {multiply} - {previous_multiplay} = {delta}')
     
     print(f'Deltas sum = {sum(deltas)}')
 
