@@ -3,10 +3,10 @@ def multiply_array_elements(array):
     for item in array:
         summa *= item
 
-    return summa
+    return round(summa, 2)
 
 def print_deltas(plan, fact):
-    absolute = fact - plan
+    absolute = round((fact - plan), 2)
     relative = round((fact / plan * 100), 2)
 
     print(f'Absolute delta = {absolute}')
@@ -14,14 +14,18 @@ def print_deltas(plan, fact):
 
 def chain_method(plan, fact):
     delta, multiply = 0, multiply_array_elements(plan)
+    deltas = []
     for i in range(3):
         plan[i] = fact[i]
 
         previous_multiplay = multiply
         multiply = multiply_array_elements(plan)
-        delta = multiply - previous_multiplay
+        delta = round((multiply - previous_multiplay), 2)
+        deltas.append(delta)
 
         print(f'XYZ{i} = {multiply} - {previous_multiplay} = {delta}')
+    
+    print(f'Deltas sum = {sum(deltas)}')
 
 def main():
     plan, fact = [], [] 
